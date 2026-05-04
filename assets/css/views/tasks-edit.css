@@ -1,0 +1,47 @@
+.persian-oa-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.persian-oa-input-icon {
+    position: absolute;
+    right: 12px;
+    color: #94a3b8;
+    z-index: 1;
+}
+.persian-oa-input-group .persian-oa-input {
+    padding-right: 36px;
+}
+.persian-oa-priority-selector {
+    display: flex;
+    gap: 8px;
+}
+.priority-option input {
+    display: none;
+}
+.priority-option .badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    background: #f1f5f9;
+    color: #64748b;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+.priority-option input:checked + .badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.priority-option.low input:checked + .badge {
+    background: #eff6ff; color: #3b82f6; border-color: #bfdbfe;
+}
+.priority-option.medium input:checked + .badge {
+    background: #f0fdf4; color: #10b981; border-color: #bbf7d0;
+}
+.priority-option.high input:checked + .badge {
+    background: #fff7ed; color: #f59e0b; border-color: #fed7aa;
+}
+.priority-option.urgent input:checked + .badge {
+    background: #fef2f2; color: #ef4444; border-color: #fecaca;
+}

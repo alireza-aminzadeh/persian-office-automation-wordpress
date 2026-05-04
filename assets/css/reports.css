@@ -1,0 +1,596 @@
+/**
+ * Office Automation - Reports Dashboard
+ * Enhanced aesthetics for the analytics & reports page
+ */
+
+/* ==================== Persian Font (Plugin Main Font) ==================== */
+.persian-oa-wrap.persian-oa-reports-page,
+.persian-oa-wrap.persian-oa-reports-page * {
+    font-family: "Vazirmatn", "Tahoma", "Iranian Sans", "Arial", sans-serif !important;
+}
+
+/* Dashicons must keep their icon font so icons render (Vazirmatn overrides above) */
+.persian-oa-wrap.persian-oa-reports-page .dashicons {
+    font-family: dashicons !important;
+}
+
+/* Keep monospace only for date/time column (digits) */
+.persian-oa-reports-page .persian-oa-table td.persian-oa-meeting-date {
+    font-family: "SF Mono", "Monaco", "Consolas", monospace !important;
+}
+
+/* ==================== Reports Page Wrapper ==================== */
+.persian-oa-wrap.persian-oa-reports-page {
+    background: linear-gradient(160deg, #f0fdf4 0%, #ecfdf5 25%, #f0f9ff 50%, #faf5ff 100%);
+    position: relative;
+}
+
+.persian-oa-wrap.persian-oa-reports-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(40%, -40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.persian-oa-wrap.persian-oa-reports-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== Reports Header (Redesigned) ==================== */
+.persian-oa-reports-header {
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fffe 40%, #f0fdf9 100%);
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(16, 185, 129, 0.12);
+    box-shadow:
+        0 4px 6px -1px rgba(16, 185, 129, 0.06),
+        0 10px 20px -5px rgba(16, 185, 129, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    overflow: hidden;
+    animation: oaReportsHeaderSlide 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes oaReportsHeaderSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.persian-oa-reports-header__bg-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(16, 185, 129, 0.06) 0%,
+        rgba(5, 150, 105, 0.03) 40%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.persian-oa-reports-header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.persian-oa-reports-header__title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    min-width: 0;
+}
+
+.persian-oa-reports-header__icon-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(145deg, #10b981 0%, #059669 50%, #047857 100%);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 12px 32px -8px rgba(16, 185, 129, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+    flex-shrink: 0;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.persian-oa-reports-header__icon-wrap:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.persian-oa-reports-header__icon-glow {
+    position: absolute;
+    inset: -8px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+    border-radius: 24px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.persian-oa-reports-header__icon-wrap:hover .persian-oa-reports-header__icon-glow {
+    opacity: 1;
+}
+
+.persian-oa-reports-header__icon-wrap .dashicons {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+}
+
+.persian-oa-reports-header__text {
+    min-width: 0;
+}
+
+.persian-oa-reports-header__title {
+    margin: 0 0 6px 0;
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+}
+
+.persian-oa-reports-header__subtitle {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--persian-oa-gray-600);
+    line-height: 1.5;
+}
+
+.persian-oa-reports-header__accent {
+    width: 6px;
+    height: 48px;
+    background: linear-gradient(180deg, #10b981, #34d399);
+    border-radius: 99px;
+    opacity: 0.6;
+    flex-shrink: 0;
+    margin-right: 8px;
+}
+
+.persian-oa-reports-header__actions {
+    flex-shrink: 0;
+}
+
+.persian-oa-reports-header__print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Vazirmatn', sans-serif;
+    color: #059669;
+    background: #ffffff;
+    border: 2px solid rgba(16, 185, 129, 0.4);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px -2px rgba(16, 185, 129, 0.2);
+}
+
+.persian-oa-reports-header__print-btn:hover {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -4px rgba(16, 185, 129, 0.4);
+}
+
+.persian-oa-reports-header__print-btn .dashicons {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+/* ==================== Stats Grid - Staggered Animation ==================== */
+.persian-oa-reports-page .persian-oa-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.persian-oa-reports-page .persian-oa-stat-card {
+    animation: reportStatFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.persian-oa-reports-page .persian-oa-stat-card:nth-child(1) { animation-delay: 0.05s; }
+.persian-oa-reports-page .persian-oa-stat-card:nth-child(2) { animation-delay: 0.1s; }
+.persian-oa-reports-page .persian-oa-stat-card:nth-child(3) { animation-delay: 0.15s; }
+.persian-oa-reports-page .persian-oa-stat-card:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes reportStatFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.persian-oa-reports-page .persian-oa-stat-card {
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: linear-gradient(145deg, #ffffff 0%, #f8fffe 100%);
+    box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.persian-oa-reports-page .persian-oa-stat-card:hover {
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(16, 185, 129, 0.08);
+}
+
+/* Stat icon enhancements – ensure Dashicons are visible and sized */
+.persian-oa-reports-page .persian-oa-stat-icon {
+    box-shadow: 0 6px 20px -4px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.persian-oa-reports-page .persian-oa-stat-icon .dashicons {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.persian-oa-reports-page .persian-oa-stat-card:hover .persian-oa-stat-icon {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.3);
+}
+
+.persian-oa-reports-page .persian-oa-stat-change-neutral {
+    background: rgba(107, 114, 128, 0.1);
+    color: var(--persian-oa-gray-600);
+}
+
+/* ==================== Chart Cards ==================== */
+.persian-oa-reports-page .persian-oa-chart-card {
+    border: 1px solid rgba(16, 185, 129, 0.08);
+    background: linear-gradient(180deg, #ffffff 0%, #fafffe 100%);
+    box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.06);
+}
+
+.persian-oa-reports-page .persian-oa-chart-card .persian-oa-chart-header {
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--persian-oa-gray-100);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.persian-oa-reports-page .persian-oa-chart-card .persian-oa-chart-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--persian-oa-gray-800);
+    letter-spacing: -0.02em;
+}
+
+.persian-oa-reports-page .persian-oa-chart-card .persian-oa-chart-body {
+    padding: 28px;
+    height: 350px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* توزیع اولویت‌ها – فضای بیشتر برای نمودار دایره‌ای */
+.persian-oa-reports-page .persian-oa-chart-card .persian-oa-chart-body:has(#priorityChart) {
+    padding: 24px 20px 32px;
+    min-height: 320px;
+}
+
+.persian-oa-reports-page .persian-oa-chart-card .persian-oa-chart-body.trend-chart {
+    padding-top: 20px;
+    justify-content: stretch;
+}
+
+/* ==================== Meetings Card ==================== */
+.persian-oa-reports-page .persian-oa-meetings-card .persian-oa-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--persian-oa-gray-100);
+}
+
+.persian-oa-reports-page .persian-oa-meetings-card .persian-oa-card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--persian-oa-gray-800);
+}
+
+.persian-oa-reports-page .persian-oa-meetings-card .persian-oa-btn-view-all {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Empty state for meetings */
+.persian-oa-reports-empty-state {
+    text-align: center;
+    padding: 48px 32px;
+    color: var(--persian-oa-gray-500);
+}
+
+.persian-oa-reports-empty-state .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    opacity: 0.4;
+}
+
+.persian-oa-reports-empty-state p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* ==================== Status Breakdown ==================== */
+.persian-oa-reports-page .persian-oa-status-breakdown-card .persian-oa-card-header.persian-oa-status-breakdown-header {
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--persian-oa-gray-100);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.persian-oa-reports-page .persian-oa-status-breakdown-card .persian-oa-card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--persian-oa-gray-800);
+}
+
+.persian-oa-reports-page .persian-oa-status-total {
+    margin: 0;
+    font-size: 13px;
+    color: var(--persian-oa-gray-600);
+    font-weight: 500;
+}
+
+.persian-oa-reports-page .persian-oa-status-total strong {
+    color: var(--persian-oa-primary);
+    font-weight: 700;
+}
+
+.persian-oa-reports-page .persian-oa-status-hint {
+    margin: 0;
+    font-size: 12px;
+    color: var(--persian-oa-gray-500);
+}
+
+.persian-oa-reports-page .persian-oa-status-breakdown-card .persian-oa-status-list {
+    padding: 24px 28px;
+}
+
+.persian-oa-reports-page .persian-oa-status-item {
+    margin-bottom: 24px;
+    transition: transform 0.2s ease;
+}
+
+.persian-oa-reports-page .persian-oa-status-item:last-child {
+    margin-bottom: 0;
+}
+
+.persian-oa-reports-page .persian-oa-status-item:hover {
+    transform: translateX(-4px);
+}
+
+/* Clickable status row (link) */
+.persian-oa-reports-page .persian-oa-status-item-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 4px 0;
+    margin: 0 -4px 24px;
+    padding: 8px 4px;
+    border-radius: 10px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.persian-oa-reports-page .persian-oa-status-item-link:last-child {
+    margin-bottom: 0;
+}
+
+.persian-oa-reports-page .persian-oa-status-item-link:hover {
+    background: rgba(16, 185, 129, 0.06);
+    transform: translateX(-4px);
+}
+
+.persian-oa-reports-page .persian-oa-status-count small {
+    font-weight: 500;
+    color: var(--persian-oa-gray-500);
+    font-size: 12px;
+}
+
+.persian-oa-reports-page .persian-oa-status-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--persian-oa-gray-700);
+}
+
+.persian-oa-reports-page .persian-oa-status-bar {
+    height: 12px;
+    border-radius: 99px;
+    overflow: hidden;
+    background: var(--persian-oa-gray-100);
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.persian-oa-reports-page .persian-oa-status-empty {
+    text-align: center;
+    padding: 32px 24px;
+    color: var(--persian-oa-gray-500);
+}
+
+.persian-oa-reports-page .persian-oa-status-empty .dashicons {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+    opacity: 0.5;
+}
+
+.persian-oa-reports-page .persian-oa-status-empty p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.persian-oa-reports-page .persian-oa-status-bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    min-width: 4px;
+}
+
+/* ==================== Table Enhancements ==================== */
+.persian-oa-reports-page .persian-oa-table-wrapper {
+    padding: 0 !important;
+}
+
+.persian-oa-reports-page .persian-oa-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.persian-oa-reports-page .persian-oa-table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.04) 0%, transparent 100%) !important;
+}
+
+.persian-oa-reports-page .persian-oa-table td.persian-oa-meeting-title {
+    font-weight: 600;
+    color: var(--persian-oa-gray-800);
+}
+
+.persian-oa-reports-page .persian-oa-table td.persian-oa-meeting-date {
+    direction: ltr;
+    text-align: right;
+    font-size: 13px;
+    color: var(--persian-oa-gray-600);
+}
+
+/* ==================== Print Styles ==================== */
+@media print {
+    .persian-oa-reports-page {
+        background: white !important;
+    }
+
+    .persian-oa-reports-page::before {
+        display: none !important;
+    }
+
+    .persian-oa-reports-page .persian-oa-reports-header__actions,
+    .persian-oa-reports-page .persian-oa-header-actions,
+    .persian-oa-reports-page .persian-oa-btn-view-all {
+        display: none !important;
+    }
+
+    .persian-oa-reports-page .persian-oa-stat-card:hover,
+    .persian-oa-reports-page .persian-oa-card:hover {
+        transform: none !important;
+    }
+
+    .persian-oa-reports-page .persian-oa-card {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        break-inside: avoid;
+    }
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 1200px) {
+    .persian-oa-reports-page .persian-oa-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .persian-oa-reports-header {
+        padding: 28px 24px;
+    }
+
+    .persian-oa-reports-header__content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .persian-oa-reports-header__title-section {
+        flex-wrap: wrap;
+    }
+
+    .persian-oa-reports-header__accent {
+        display: none;
+    }
+
+    .persian-oa-reports-header__title {
+        font-size: 24px;
+    }
+
+    .persian-oa-reports-header__subtitle {
+        font-size: 14px;
+    }
+
+    .persian-oa-reports-header__print-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .persian-oa-reports-page .persian-oa-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .persian-oa-reports-page .persian-oa-stat-card:nth-child(n) {
+        animation-delay: 0s;
+    }
+
+    .persian-oa-reports-page .persian-oa-chart-card .persian-oa-chart-body {
+        height: 280px;
+    }
+
+    .persian-oa-reports-page .persian-oa-meetings-card .persian-oa-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}

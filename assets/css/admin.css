@@ -1,0 +1,1393 @@
+/**
+ * Office Automation - Ultra Modern & Beautiful UI/UX
+ * Designed with love ❤️
+ */
+
+/* ==================== Variables ==================== */
+:root {
+    /* Colors - Vibrant & Modern - GREEN THEME */
+    --persian-oa-primary: #10b981;
+    --persian-oa-primary-dark: #059669;
+    --persian-oa-primary-light: #6ee7b7;
+    --persian-oa-success: #10b981;
+    --persian-oa-warning: #f59e0b;
+    --persian-oa-danger: #ef4444;
+    --persian-oa-info: #3b82f6;
+    
+    /* Grays */
+    --persian-oa-gray-50: #f9fafb;
+    --persian-oa-gray-100: #f3f4f6;
+    --persian-oa-gray-200: #e5e7eb;
+    --persian-oa-gray-300: #d1d5db;
+    --persian-oa-gray-400: #9ca3af;
+    --persian-oa-gray-500: #6b7280;
+    --persian-oa-gray-600: #4b5563;
+    --persian-oa-gray-700: #374151;
+    --persian-oa-gray-800: #1f2937;
+    --persian-oa-gray-900: #111827;
+    
+    /* Shadows - Beautiful depth */
+    --persian-oa-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --persian-oa-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --persian-oa-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --persian-oa-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --persian-oa-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --persian-oa-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    
+    /* Border Radius */
+    --persian-oa-radius-sm: 8px;
+    --persian-oa-radius-md: 12px;
+    --persian-oa-radius-lg: 16px;
+    --persian-oa-radius-xl: 24px;
+    --persian-oa-radius-full: 9999px;
+    
+    /* Transitions */
+    --persian-oa-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --persian-oa-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== Global Styles ==================== */
+.persian-oa-wrap {
+    font-family: 'Vazirmatn', 'Tahoma', 'Iranian Sans', -apple-system, sans-serif;
+    direction: rtl;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    min-height: 100vh;
+    padding: 32px;
+    margin: 20px 20px 0 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Fix for Icon Fonts - جلوگیری از تغییر فونت آیکون‌ها با اولویت بالا */
+.persian-oa-wrap .mce-ico,
+.persian-oa-wrap .mce-btn i,
+.persian-oa-wrap .dashicons,
+.persian-oa-wrap .dashicons-before:before {
+    font-family: 'tinymce', Arial, sans-serif !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+/* Force Dashicons font specifically */
+.persian-oa-wrap .dashicons,
+.persian-oa-wrap .dashicons-before:before {
+    font-family: 'dashicons' !important;
+}
+
+/* Ensure all child elements use border-box */
+.persian-oa-wrap * {
+    box-sizing: border-box;
+}
+
+/* ==================== Header ==================== */
+.persian-oa-header {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: var(--persian-oa-radius-xl);
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: var(--persian-oa-shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 100%;
+}
+
+.persian-oa-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+    pointer-events: none;
+}
+
+.persian-oa-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.persian-oa-title {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--persian-oa-primary) 0%, var(--persian-oa-primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.persian-oa-title-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--persian-oa-primary) 0%, var(--persian-oa-primary-dark) 100%);
+    border-radius: var(--persian-oa-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: var(--persian-oa-shadow-lg), 0 0 0 4px rgba(99, 102, 241, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.persian-oa-title-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+.persian-oa-subtitle {
+    font-size: 16px;
+    color: var(--persian-oa-gray-600);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ==================== Buttons ==================== */
+.persian-oa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: var(--persian-oa-radius-full);
+    border: none;
+    cursor: pointer;
+    transition: var(--persian-oa-transition);
+    font-family: 'Vazirmatn', sans-serif;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none !important;
+}
+
+.persian-oa-btn a,
+.persian-oa-btn a:hover,
+.persian-oa-btn a:focus,
+.persian-oa-btn a:active {
+    text-decoration: none !important;
+}
+
+.persian-oa-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.persian-oa-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.persian-oa-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--persian-oa-shadow-xl);
+}
+
+.persian-oa-btn:active {
+    transform: translateY(-1px);
+}
+
+.persian-oa-btn-primary {
+    background: linear-gradient(135deg, var(--persian-oa-primary) 0%, var(--persian-oa-primary-dark) 100%);
+    color: white;
+    box-shadow: var(--persian-oa-shadow-md);
+}
+
+.persian-oa-btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: var(--persian-oa-shadow-md);
+}
+
+.persian-oa-btn-outline {
+    background: white;
+    color: var(--persian-oa-primary);
+    border: 2px solid var(--persian-oa-primary);
+    box-shadow: var(--persian-oa-shadow-sm);
+}
+
+.persian-oa-btn-outline:hover {
+    background: var(--persian-oa-primary);
+    color: white;
+}
+
+.persian-oa-btn-danger-outline {
+    background: white;
+    border: 1px solid #fee2e2;
+    color: var(--persian-oa-danger);
+}
+
+.persian-oa-btn-danger-outline:hover {
+    background: #fee2e2;
+}
+
+.persian-oa-btn-small {
+    padding: 4px 8px;
+    background: var(--persian-oa-gray-200);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ==================== Cards ==================== */
+.persian-oa-card {
+    background: white;
+    border-radius: var(--persian-oa-radius-xl);
+    border: 1px solid var(--persian-oa-gray-200);
+    box-shadow: var(--persian-oa-shadow-md);
+    overflow: hidden;
+    transition: var(--persian-oa-transition);
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.persian-oa-card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--persian-oa-gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--persian-oa-gray-50);
+}
+
+.persian-oa-card-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--persian-oa-gray-900);
+}
+
+.persian-oa-card-body {
+    padding: 20px;
+}
+
+.persian-oa-prose {
+    line-height: 1.8;
+    color: var(--persian-oa-gray-600);
+}
+
+.persian-oa-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--persian-oa-primary) 0%, var(--persian-oa-info) 50%, var(--persian-oa-success) 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.persian-oa-card:hover::before {
+    opacity: 1;
+}
+
+.persian-oa-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--persian-oa-shadow-2xl);
+    border-color: var(--persian-oa-primary-light);
+}
+
+/* ==================== Stats Grid ==================== */
+.persian-oa-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.persian-oa-stat-card {
+    background: linear-gradient(135deg, white 0%, var(--persian-oa-gray-50) 100%);
+    border-radius: var(--persian-oa-radius-lg);
+    padding: 28px;
+    border: 1px solid var(--persian-oa-gray-200);
+    box-shadow: var(--persian-oa-shadow-md);
+    transition: var(--persian-oa-transition);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.persian-oa-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: var(--stat-gradient, linear-gradient(135deg, var(--persian-oa-primary), var(--persian-oa-primary-light)));
+    opacity: 0.1;
+    border-radius: 50%;
+    transform: translate(40%, -40%);
+    transition: var(--persian-oa-transition);
+}
+
+.persian-oa-stat-card:hover::before {
+    transform: translate(40%, -40%) scale(1.2);
+    opacity: 0.15;
+}
+
+.persian-oa-stat-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--persian-oa-shadow-xl);
+}
+
+.persian-oa-stat-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--persian-oa-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    background: var(--stat-gradient, linear-gradient(135deg, var(--persian-oa-primary), var(--persian-oa-primary-dark)));
+    color: white;
+    margin-bottom: 16px;
+    box-shadow: var(--persian-oa-shadow-lg);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.persian-oa-stat-value {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--persian-oa-gray-900);
+    margin: 12px 0;
+    line-height: 1;
+}
+
+.persian-oa-stat-label {
+    font-size: 15px;
+    color: var(--persian-oa-gray-600);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.persian-oa-stat-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: var(--persian-oa-radius-full);
+    margin-top: 8px;
+}
+
+.persian-oa-stat-change.up {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--persian-oa-success);
+}
+
+.persian-oa-stat-change.down {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--persian-oa-danger);
+}
+
+/* ==================== Animations ==================== */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==================== Table ==================== */
+.persian-oa-table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--persian-oa-radius-lg);
+}
+
+.persian-oa-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.persian-oa-table thead {
+    background: linear-gradient(135deg, var(--persian-oa-gray-50) 0%, var(--persian-oa-gray-100) 100%);
+}
+
+.persian-oa-table th {
+    padding: 16px 20px;
+    text-align: right;
+    font-weight: 700;
+    color: var(--persian-oa-gray-700);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.persian-oa-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--persian-oa-gray-200);
+    font-size: 15px;
+    color: var(--persian-oa-gray-700);
+}
+
+.persian-oa-table tbody tr {
+    transition: var(--persian-oa-transition-fast);
+}
+
+.persian-oa-table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+    transform: scale(1.01);
+}
+
+/* ==================== Badges ==================== */
+.persian-oa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--persian-oa-radius-full);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: var(--persian-oa-shadow-xs);
+}
+
+.persian-oa-badge-primary {
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    color: var(--persian-oa-primary-dark);
+}
+
+.persian-oa-badge-success {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    color: #065f46;
+}
+
+.persian-oa-badge-warning {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+}
+
+.persian-oa-badge-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    color: #991b1b;
+}
+
+/* ==================== Forms ==================== */
+.persian-oa-input, .persian-oa-select, .persian-oa-textarea {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 15px;
+    font-family: 'Vazirmatn', sans-serif;
+    border: 2px solid var(--persian-oa-gray-300);
+    border-radius: var(--persian-oa-radius-md);
+    transition: var(--persian-oa-transition);
+    background: white;
+}
+
+.persian-oa-input:focus, .persian-oa-select:focus, .persian-oa-textarea:focus {
+    outline: none;
+    border-color: var(--persian-oa-primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    transform: scale(1.01);
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 1200px) {
+    .persian-oa-wrap {
+        padding: 24px;
+        margin: 16px 16px 0 0;
+    }
+    
+    .persian-oa-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .persian-oa-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    /* Make chart section stack vertically on medium screens */
+    .persian-oa-wrap > div:has(.persian-oa-card) {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .persian-oa-wrap {
+        padding: 16px;
+        margin: 10px 10px 0 0;
+    }
+    
+    .persian-oa-header {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .persian-oa-header-content > div:first-child {
+        width: 100%;
+    }
+    
+    .persian-oa-header-content > div:last-child {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .persian-oa-header-content button {
+        width: 100%;
+    }
+    
+    .persian-oa-title {
+        font-size: 24px;
+        gap: 12px;
+    }
+    
+    .persian-oa-title-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 22px;
+    }
+    
+    .persian-oa-subtitle {
+        font-size: 14px;
+    }
+    
+    .persian-oa-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .persian-oa-stat-card {
+        padding: 20px;
+    }
+    
+    .persian-oa-stat-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+    }
+    
+    .persian-oa-stat-value {
+        font-size: 32px;
+    }
+    
+    /* Table responsive */
+    .persian-oa-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .persian-oa-table {
+        min-width: 600px;
+    }
+}
+
+/* ==================== Utilities ==================== */
+.persian-oa-mb-2 { margin-bottom: 16px; }
+.persian-oa-mb-4 { margin-bottom: 32px; }
+.persian-oa-mt-4 { margin-top: 32px; }
+.persian-oa-flex { display: flex; }
+.persian-oa-gap-4 { gap: 24px; }
+
+/* Responsive Grid Helper */
+.persian-oa-grid-2-1 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+@media (max-width: 992px) {
+    .persian-oa-grid-2-1 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== Persian Date Picker Customization ==================== */
+.pwt-datepicker-input-element {
+    font-family: 'Vazirmatn', sans-serif !important;
+    direction: rtl !important;
+}
+
+.pwt-datepicker-view-container {
+    font-family: 'Vazirmatn', sans-serif !important;
+    border-radius: var(--persian-oa-radius-lg) !important;
+    box-shadow: var(--persian-oa-shadow-2xl) !important;
+    border: 1px solid var(--persian-oa-gray-200) !important;
+    overflow: hidden;
+}
+
+.pwt-datepicker-view-container .day-item,
+.pwt-datepicker-view-container .month-item,
+.pwt-datepicker-view-container .year-item {
+    transition: var(--persian-oa-transition-fast) !important;
+    border-radius: var(--persian-oa-radius-sm) !important;
+}
+
+.pwt-datepicker-view-container .day-item:hover,
+.pwt-datepicker-view-container .month-item:hover,
+.pwt-datepicker-view-container .year-item:hover {
+    background: var(--persian-oa-primary-light) !important;
+    color: var(--persian-oa-primary-dark) !important;
+    transform: scale(1.1) !important;
+}
+
+.pwt-datepicker-view-container .selected {
+    background: linear-gradient(135deg, var(--persian-oa-primary) 0%, var(--persian-oa-primary-dark) 100%) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    box-shadow: var(--persian-oa-shadow-md) !important;
+}
+
+.pwt-datepicker-view-container .today {
+    border: 2px solid var(--persian-oa-primary) !important;
+    font-weight: 700 !important;
+}
+
+.pwt-datepicker-header {
+    background: linear-gradient(135deg, var(--persian-oa-primary) 0%, var(--persian-oa-primary-dark) 100%) !important;
+    border-radius: 0 !important;
+    padding: 16px !important;
+}
+
+.pwt-datepicker-header-row {
+    color: white !important;
+}
+
+.pwt-datepicker-navigator {
+    color: white !important;
+}
+
+.pwt-btn {
+    border-radius: var(--persian-oa-radius-md) !important;
+    padding: 8px 16px !important;
+    font-weight: 600 !important;
+    transition: var(--persian-oa-transition-fast) !important;
+    font-family: 'Vazirmatn', sans-serif !important;
+}
+
+.pwt-btn-success {
+    background: linear-gradient(135deg, var(--persian-oa-success) 0%, #059669 100%) !important;
+    border: none !important;
+}
+
+.pwt-btn-success:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--persian-oa-shadow-lg) !important;
+}
+
+.pwt-btn-default {
+    background: var(--persian-oa-gray-200) !important;
+    color: var(--persian-oa-gray-700) !important;
+    border: none !important;
+}
+
+.pwt-btn-default:hover {
+    background: var(--persian-oa-gray-300) !important;
+    transform: translateY(-2px) !important;
+}
+
+.pwt-datepicker-days-name {
+    background: var(--persian-oa-gray-100) !important;
+    font-weight: 700 !important;
+    color: var(--persian-oa-gray-700) !important;
+}
+
+.pwt-datepicker-toolbox {
+    border-top: 1px solid var(--persian-oa-gray-200) !important;
+    padding: 12px !important;
+    background: var(--persian-oa-gray-50) !important;
+}
+
+/* Custom styling for date picker input */
+#jalali-datepicker {
+    background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2310b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>') no-repeat;
+    background-position: left 18px center;
+    padding-right: 18px;
+    padding-left: 48px;
+    cursor: pointer;
+}
+
+/* ==================== Form Styles ==================== */
+.persian-oa-letter-form {
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.persian-oa-tabs-container {
+    margin-bottom: 24px;
+}
+
+.persian-oa-tabs {
+    display: flex;
+    gap: 8px;
+    background: white;
+    padding: 8px;
+    border-radius: var(--persian-oa-radius-lg);
+    box-shadow: var(--persian-oa-shadow-md);
+    overflow-x: auto;
+}
+
+.persian-oa-tab {
+    flex: 1;
+    min-width: 150px;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--persian-oa-gray-600);
+    background: transparent;
+    border: none;
+    border-radius: var(--persian-oa-radius-md);
+    cursor: pointer;
+    transition: var(--persian-oa-transition);
+    white-space: nowrap;
+    font-family: 'Vazirmatn', sans-serif;
+    text-decoration: none !important;
+}
+
+.persian-oa-tab:hover {
+    background: var(--persian-oa-gray-100);
+    color: var(--persian-oa-gray-900);
+}
+
+.persian-oa-tab.active {
+    background: linear-gradient(135deg, var(--persian-oa-primary) 0%, var(--persian-oa-primary-dark) 100%);
+    color: white;
+    box-shadow: var(--persian-oa-shadow-md);
+}
+
+.persian-oa-tab-content {
+    display: none;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.persian-oa-tab-content.active {
+    display: block;
+}
+
+.persian-oa-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.persian-oa-form-group {
+    margin-bottom: 20px;
+}
+
+.persian-oa-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--persian-oa-gray-700);
+    margin-bottom: 8px;
+}
+
+.persian-oa-label.required::after {
+    content: ' *';
+    color: var(--persian-oa-danger);
+}
+
+.persian-oa-help-text {
+    display: block;
+    font-size: 13px;
+    color: var(--persian-oa-gray-500);
+    margin-top: 6px;
+    font-style: italic;
+}
+
+.persian-oa-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.persian-oa-btn-lg {
+    padding: 16px 32px;
+    font-size: 16px;
+}
+
+.persian-oa-file-upload {
+    position: relative;
+}
+
+.persian-oa-file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.persian-oa-file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 32px 20px;
+    background: linear-gradient(135deg, var(--persian-oa-gray-50) 0%, white 100%);
+    border: 2px dashed var(--persian-oa-gray-300);
+    border-radius: var(--persian-oa-radius-lg);
+    cursor: pointer;
+    transition: var(--persian-oa-transition);
+    text-align: center;
+    font-weight: 600;
+    color: var(--persian-oa-gray-700);
+}
+
+.persian-oa-file-label:hover {
+    border-color: var(--persian-oa-primary);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, white 100%);
+    transform: translateY(-2px);
+}
+
+.persian-oa-file-list {
+    margin-top: 16px;
+}
+
+.persian-oa-file-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--persian-oa-gray-50);
+    border-radius: var(--persian-oa-radius-md);
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--persian-oa-gray-700);
+}
+
+.persian-oa-file-size {
+    color: var(--persian-oa-gray-500);
+    font-size: 13px;
+}
+
+.persian-oa-existing-files {
+    padding: 16px;
+    background: var(--persian-oa-gray-50);
+    border-radius: var(--persian-oa-radius-md);
+    border: 1px solid var(--persian-oa-gray-200);
+}
+
+.persian-oa-info-box {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    border-radius: var(--persian-oa-radius-md);
+    border-right: 4px solid var(--persian-oa-primary);
+    color: var(--persian-oa-primary-dark);
+    font-size: 14px;
+}
+
+.persian-oa-form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+/* WordPress Editor Wrapper - Minimal Style */
+.wp-editor-wrap {
+    border: 2px solid var(--persian-oa-gray-300) !important;
+    border-radius: var(--persian-oa-radius-md) !important;
+    overflow: hidden;
+    transition: var(--persian-oa-transition);
+}
+
+.wp-editor-wrap:focus-within {
+    border-color: var(--persian-oa-primary) !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* TinyMCE Editor Body - Basic Typography */
+.persian-oa-editor-body {
+    font-family: 'Vazirmatn', 'Tahoma', 'Iranian Sans', sans-serif !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+    color: var(--persian-oa-gray-800) !important;
+}
+
+/* Remove all custom TinyMCE button styling to fix icons */
+/* TinyMCE will use its default skin */
+
+/* Media Button - Custom Style */
+.wp-media-buttons .button {
+    background: linear-gradient(135deg, var(--persian-oa-primary) 0%, var(--persian-oa-primary-dark) 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: var(--persian-oa-radius-md) !important;
+    padding: 8px 16px !important;
+    transition: var(--persian-oa-transition) !important;
+    font-family: 'Vazirmatn', sans-serif !important;
+}
+
+.wp-media-buttons .button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--persian-oa-shadow-md) !important;
+}
+
+.wp-media-buttons .button .dashicons {
+    margin-left: 4px;
+    margin-right: 0;
+}
+
+/* Multiple Select Styling */
+select[multiple] {
+    min-height: 150px;
+    padding: 12px;
+}
+
+select[multiple] option {
+    padding: 8px 12px;
+    border-radius: var(--persian-oa-radius-sm);
+    margin-bottom: 4px;
+}
+
+select[multiple] option:checked {
+    background: linear-gradient(135deg, var(--persian-oa-primary) 0%, var(--persian-oa-primary-dark) 100%);
+    color: white;
+}
+
+/* Date picker specific styling */
+.jalali-datepicker {
+    background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2310b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>') no-repeat;
+    background-position: left 18px center;
+    padding-right: 18px;
+    padding-left: 48px;
+    cursor: pointer;
+}
+
+/* CKEditor 5 Customization */
+.ck-editor__editable_inline {
+    min-height: 300px;
+    font-family: 'Vazirmatn', sans-serif !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.ck-toolbar {
+    font-family: 'Vazirmatn', sans-serif !important;
+}
+
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
+    border-color: var(--persian-oa-gray-300) !important;
+}
+
+.ck.ck-editor__main > .ck-editor__editable:focus {
+    border-color: var(--persian-oa-primary) !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1) !important;
+}
+
+/* Responsive Form */
+@media (max-width: 768px) {
+    .persian-oa-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .persian-oa-form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .persian-oa-form-actions {
+        flex-direction: column;
+    }
+    
+    .persian-oa-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==================== Task Management / Kanban ==================== */
+.persian-oa-search-box {
+    position: relative;
+    width: 250px;
+}
+
+.persian-oa-search-box .dashicons {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--persian-oa-gray-400);
+    pointer-events: none;
+}
+
+.persian-oa-search-box input {
+    padding-left: 35px !important;
+}
+
+.persian-oa-view-switcher-group {
+    background: white;
+    padding: 4px;
+    border-radius: var(--persian-oa-radius-md);
+    border: 1px solid var(--persian-oa-gray-300);
+    display: flex;
+    gap: 4px;
+}
+
+.persian-oa-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    color: var(--persian-oa-gray-500);
+    border-radius: var(--persian-oa-radius-sm);
+    transition: var(--persian-oa-transition-fast);
+    text-decoration: none !important;
+}
+
+.persian-oa-btn-icon:hover {
+    background: var(--persian-oa-gray-100);
+    color: var(--persian-oa-gray-700);
+}
+
+.persian-oa-btn-icon.active {
+    background: var(--persian-oa-gray-100);
+    color: var(--persian-oa-primary);
+    font-weight: bold;
+}
+
+.persian-oa-btn-ghost {
+    background: transparent;
+    border: 1px dashed var(--persian-oa-gray-300);
+    color: var(--persian-oa-gray-500);
+    padding: 8px 16px;
+    border-radius: var(--persian-oa-radius-md);
+    cursor: pointer;
+    transition: var(--persian-oa-transition);
+    font-family: inherit;
+    width: 100%;
+    text-align: center;
+}
+
+.persian-oa-btn-ghost:hover {
+    border-color: var(--persian-oa-primary);
+    color: var(--persian-oa-primary);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.persian-oa-kanban-board-wrapper {
+    overflow-x: auto;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+.persian-oa-kanban-board {
+    display: flex;
+    gap: 24px;
+    min-width: 100%;
+    align-items: flex-start;
+}
+
+.persian-oa-kanban-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    border-radius: var(--persian-oa-radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 200px);
+    box-shadow: var(--persian-oa-shadow-sm);
+    transition: var(--persian-oa-transition);
+}
+
+.persian-oa-kanban-header {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.persian-oa-kanban-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+}
+
+.persian-oa-kanban-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+    min-height: 100px;
+}
+
+.persian-oa-kanban-card {
+    background: white;
+    padding: 16px;
+    margin-bottom: 12px;
+    cursor: grab;
+    border: 1px solid transparent;
+    border-radius: var(--persian-oa-radius-md);
+    transition: all 0.2s ease;
+    box-shadow: var(--persian-oa-shadow-sm);
+}
+
+.persian-oa-kanban-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--persian-oa-shadow-md);
+    border-color: var(--persian-oa-primary-light);
+}
+
+.persian-oa-kanban-card.dragging {
+    opacity: 0.6;
+    cursor: grabbing;
+    transform: scale(0.95);
+    box-shadow: var(--persian-oa-shadow-xl);
+}
+
+.persian-oa-card-badges {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.persian-oa-card-title {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.persian-oa-card-title a {
+    color: var(--persian-oa-gray-800);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.persian-oa-card-title a:hover {
+    color: var(--persian-oa-primary);
+}
+
+.persian-oa-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--persian-oa-gray-100);
+}
+
+.persian-oa-card-meta {
+    font-size: 11px;
+    color: var(--persian-oa-gray-500);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.persian-oa-avatars img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: var(--persian-oa-shadow-sm);
+    object-fit: cover;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.2);
+}
+
+/* Filter Bar Improvements */
+.persian-oa-filter-bar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ==================== Task View (from view.php) ==================== */
+.persian-oa-task-header-modern {
+    background: #fff;
+    padding: 24px;
+    border-radius: var(--persian-oa-radius-lg);
+    margin-bottom: 24px;
+    box-shadow: var(--persian-oa-shadow-sm);
+    border: 1px solid var(--persian-oa-gray-200);
+}
+
+.persian-oa-header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+
+.persian-oa-task-id { font-size: 13px; color: var(--persian-oa-gray-500); font-weight: bold; margin-bottom: 4px; }
+.persian-oa-main-title { font-size: 26px; font-weight: 800; color: var(--persian-oa-gray-900); margin: 0; line-height: 1.3; }
+
+.persian-oa-status-badge { display: inline-block; font-size: 12px; padding: 4px 12px; border-radius: 20px; font-weight: 600; margin-right: 10px; vertical-align: middle; }
+
+/* Timer Widget */
+.persian-oa-timer-widget { display: flex; align-items: center; background: var(--persian-oa-gray-50); padding: 4px 12px; border-radius: 30px; border: 1px solid var(--persian-oa-gray-200); margin-left: 15px; }
+.persian-oa-timer-display { font-family: monospace; font-size: 16px; font-weight: bold; color: var(--persian-oa-primary); margin-left: 10px; min-width: 80px; text-align: center; }
+.persian-oa-btn-icon { background: none; border: none; cursor: pointer; color: var(--persian-oa-gray-500); transition: .2s; padding: 4px; border-radius: 50%; display: flex; }
+.persian-oa-btn-icon:hover { background: var(--persian-oa-gray-200); color: var(--persian-oa-primary); }
+.persian-oa-btn-play { color: var(--persian-oa-success); }
+.persian-oa-btn-stop { color: var(--persian-oa-danger); }
+
+.persian-oa-action-buttons { display: flex; gap: 10px; align-items: center; }
+
+/* Meta Bar */
+.persian-oa-meta-bar-modern { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; border-top: 1px solid var(--persian-oa-gray-200); padding-top: 15px; }
+.persian-oa-meta-item { display: flex; align-items: center; gap: 6px; color: var(--persian-oa-gray-500); font-size: 13px; font-weight: 500; }
+.persian-oa-tags-list { display: flex; gap: 8px; }
+.persian-oa-tag-modern { background: #eef2ff; color: var(--persian-oa-primary); padding: 2px 8px; border-radius: 6px; font-size: 12px; }
+.persian-oa-divider-vertical { width: 1px; height: 16px; background: var(--persian-oa-gray-200); }
+.persian-oa-priority-badge { padding: 2px 8px; border-radius: 4px; border: 1px solid; font-size: 11px; }
+
+/* Progress Bar */
+.persian-oa-progress-container { margin-top: 20px; height: 6px; background: var(--persian-oa-gray-100); border-radius: 3px; overflow: hidden; }
+.persian-oa-progress-value { height: 100%; background: linear-gradient(90deg, var(--persian-oa-primary), var(--persian-oa-primary-light)); transition: width 0.5s ease; }
+
+/* Layout Grid */
+.persian-oa-layout-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+@media (max-width: 900px) { .persian-oa-layout-grid { grid-template-columns: 1fr; } }
+
+/* Checklist */
+.persian-oa-checklist-modern { list-style: none; padding: 0; margin: 0; }
+.persian-oa-checklist-row { padding: 10px 0; border-bottom: 1px solid var(--persian-oa-gray-100); }
+.persian-oa-checklist-row:last-child { border-bottom: none; }
+.persian-oa-checkbox-container { display: flex; align-items: center; cursor: pointer; position: relative; padding-right: 30px; }
+.persian-oa-checklist-cb { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+.persian-oa-checkmark { position: absolute; right: 0; height: 20px; width: 20px; background-color: #eee; border-radius: 4px; transition: .2s; }
+.persian-oa-checklist-cb:checked ~ .persian-oa-checkmark { background-color: var(--persian-oa-success); }
+.persian-oa-checkmark:after { content: ""; position: absolute; display: none; }
+.persian-oa-checklist-cb:checked ~ .persian-oa-checkmark:after { display: block; }
+.persian-oa-checkmark:after { left: 7px; top: 3px; width: 5px; height: 10px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.persian-oa-text.completed { text-decoration: line-through; color: var(--persian-oa-gray-400); }
+.persian-oa-checklist-add { display: flex; gap: 10px; margin-top: 15px; }
+.persian-oa-checklist-add input { flex: 1; padding: 8px; border: 1px solid var(--persian-oa-gray-200); border-radius: 6px; }
+
+/* Tabs */
+.persian-oa-tabs-header { display: flex; border-bottom: 1px solid var(--persian-oa-gray-200); background: var(--persian-oa-gray-50); padding: 0 10px; border-radius: var(--persian-oa-radius-lg) var(--persian-oa-radius-lg) 0 0; }
+.persian-oa-tab-btn { background: none; border: none; padding: 15px 20px; cursor: pointer; font-weight: 600; color: var(--persian-oa-gray-500); border-bottom: 2px solid transparent; transition: .2s; font-family: inherit; }
+.persian-oa-tab-btn:hover { color: var(--persian-oa-primary); }
+.persian-oa-tab-btn.active { color: var(--persian-oa-primary); border-bottom-color: var(--persian-oa-primary); }
+.persian-oa-tab-content { display: none; padding-top: 20px; }
+.persian-oa-tab-content.active { display: block; }
+
+/* Comments */
+.persian-oa-comments-flow { display: flex; flex-direction: column; gap: 20px; margin-bottom: 20px; max-height: 400px; overflow-y: auto; }
+.persian-oa-comment-item { display: flex; gap: 15px; }
+.persian-oa-comment-avatar img { border-radius: 50%; }
+.persian-oa-comment-content { background: var(--persian-oa-gray-50); padding: 15px; border-radius: 12px; flex: 1; position: relative; }
+.persian-oa-comment-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--persian-oa-gray-500); margin-bottom: 8px; }
+.persian-oa-comment-input-area { background: #fff; border: 1px solid var(--persian-oa-gray-200); border-radius: 12px; padding: 10px; position: relative; }
+.persian-oa-comment-input-area textarea { width: 100%; border: none; resize: none; min-height: 60px; outline: none; font-family: inherit; }
+.persian-oa-comment-tools { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--persian-oa-gray-100); padding-top: 10px; margin-top: 10px; }
+
+/* Attachments */
+.persian-oa-attachments-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+.persian-oa-att-card { border: 1px solid var(--persian-oa-gray-200); border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 10px; }
+.persian-oa-att-icon { font-size: 24px; color: var(--persian-oa-primary); }
+.persian-oa-att-info { display: flex; flex-direction: column; overflow: hidden; }
+.persian-oa-att-info .name { font-weight: 600; font-size: 13px; text-decoration: none; color: var(--persian-oa-gray-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.persian-oa-att-info .meta { font-size: 11px; color: var(--persian-oa-gray-500); }
+
+/* Sidebar Items */
+.persian-oa-person-row { margin-bottom: 15px; }
+.persian-oa-person-row label { display: block; font-size: 12px; color: var(--persian-oa-gray-500); margin-bottom: 6px; }
+.persian-oa-person { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.persian-oa-person img { border-radius: 50%; }
+.persian-oa-details-list { list-style: none; padding: 0; margin: 0; }
+.persian-oa-details-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--persian-oa-gray-100); font-size: 13px; }
+.persian-oa-details-list li:last-child { border-bottom: none; }
+.persian-oa-linked-item { margin-top: 15px; background: #ecfdf5; padding: 10px; border-radius: 8px; display: flex; gap: 10px; align-items: center; color: #047857; }
+.persian-oa-w-full { width: 100%; justify-content: center; }
+
+/* History */
+.persian-oa-history-list { list-style: none; padding: 0; margin: 0; }
+.persian-oa-history-item { padding: 12px 0; border-bottom: 1px solid var(--persian-oa-gray-100); display: flex; gap: 12px; font-size: 13px; }
+.persian-oa-history-icon { color: var(--persian-oa-gray-500); }
+.persian-oa-history-details .time { display: block; font-size: 11px; color: var(--persian-oa-gray-400); margin-top: 2px; }
+
+/* Subtasks */
+.persian-oa-subtasks-modern { list-style: none; padding: 0; margin: 0; }
+.persian-oa-subtask-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid var(--persian-oa-gray-100); transition: background 0.2s; }
+.persian-oa-subtask-row:hover { background: var(--persian-oa-gray-50); }
+.persian-oa-subtask-row:last-child { border-bottom: none; }
+.persian-oa-subtask-info { display: flex; align-items: center; gap: 10px; }
+.persian-oa-status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.persian-oa-status-dot.todo { background: var(--persian-oa-gray-400); }
+.persian-oa-status-dot.in_progress { background: var(--persian-oa-info); }
+.persian-oa-status-dot.completed { background: var(--persian-oa-success); }
+.persian-oa-status-dot.on_hold { background: var(--persian-oa-warning); }
+.persian-oa-status-dot.cancelled { background: var(--persian-oa-danger); }
+
+/* Modal */
+.persian-oa-modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 999; display: flex; justify-content: center; align-items: center; }
+.persian-oa-modal { background: white; width: 400px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.persian-oa-modal-header { padding: 15px 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+.persian-oa-modal-header h3 { margin: 0; font-size: 16px; }
+.persian-oa-modal-body { padding: 20px; }
+.persian-oa-modal-footer { padding: 15px 20px; background: #f9fafb; text-align: left; }
+.close-modal { background: none; border: none; font-size: 20px; cursor: pointer; }
+
+/* Text Colors Utility */
+.text-danger { color: var(--persian-oa-danger); }

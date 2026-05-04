@@ -1,0 +1,204 @@
+/**
+ * Office Automation - Admin Bar Notifications
+ * Beautiful notifications dropdown on the WordPress admin bar
+ */
+
+/* ========== Variables ========== */
+#wpadminbar .persian-oa-admin-bar-notifications {
+    --persian-oa-ab-primary: #10b981;
+    --persian-oa-ab-primary-dark: #059669;
+    --persian-oa-ab-primary-light: #d1fae5;
+    --persian-oa-ab-bg: #ffffff;
+    --persian-oa-ab-border: #e5e7eb;
+    --persian-oa-ab-text: #1f2937;
+    --persian-oa-ab-text-muted: #6b7280;
+    --persian-oa-ab-hover: #f3f4f6;
+    --persian-oa-ab-radius: 12px;
+    --persian-oa-ab-radius-sm: 8px;
+    --persian-oa-ab-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.03);
+    --persian-oa-ab-font: 'Vazirmatn', Tahoma, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ========== Main bar item ========== */
+#wpadminbar #wp-admin-bar-persian-oa-notifications > .ab-item {
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px !important;
+    font-family: var(--persian-oa-ab-font) !important;
+    direction: rtl;
+    min-height: 32px;
+}
+
+#wpadminbar #wp-admin-bar-persian-oa-notifications:hover > .ab-item,
+#wpadminbar #wp-admin-bar-persian-oa-notifications.hover > .ab-item {
+    background: rgba(16, 185, 129, 0.12) !important;
+}
+
+/* Icon */
+#wpadminbar .persian-oa-ab-icon {
+    font-size: 16px;
+    line-height: 1;
+    opacity: 0.95;
+}
+
+/* Label */
+#wpadminbar .persian-oa-ab-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff !important;
+    letter-spacing: 0.01em;
+}
+
+/* Badge */
+#wpadminbar .persian-oa-ab-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    font-size: 11px !important;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff !important;
+    background: linear-gradient(135deg, var(--persian-oa-ab-primary) 0%, var(--persian-oa-ab-primary-dark) 100%);
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+    animation: persian-oa-ab-badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes persian-oa-ab-badge-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 2px 10px rgba(16, 185, 129, 0.5); }
+}
+
+/* ========== Dropdown panel ========== */
+#wpadminbar #wp-admin-bar-persian-oa-notifications .ab-sub-wrapper {
+    right: 0 !important;
+    left: auto !important;
+    padding-top: 8px !important;
+}
+
+#wpadminbar #wp-admin-bar-persian-oa-notifications .ab-submenu {
+    min-width: 320px !important;
+    max-width: 380px;
+    padding: 0 !important;
+    background: var(--persian-oa-ab-bg) !important;
+    border-radius: var(--persian-oa-ab-radius) !important;
+    box-shadow: var(--persian-oa-ab-shadow) !important;
+    border: 1px solid var(--persian-oa-ab-border) !important;
+    overflow: hidden;
+    font-family: var(--persian-oa-ab-font) !important;
+    direction: rtl;
+}
+
+/* Header strip (optional visual) */
+#wpadminbar #wp-admin-bar-persian-oa-notifications .ab-submenu::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, var(--persian-oa-ab-primary-dark), var(--persian-oa-ab-primary));
+    border-radius: var(--persian-oa-ab-radius) var(--persian-oa-ab-radius) 0 0;
+}
+
+/* ========== Empty state ========== */
+#wpadminbar #wp-admin-bar-persian-oa-notifications .persian-oa-ab-empty .ab-item {
+    padding: 20px 16px !important;
+    text-align: center;
+    cursor: default !important;
+}
+
+#wpadminbar .persian-oa-ab-notice--empty {
+    font-size: 13px;
+    color: var(--persian-oa-ab-text-muted) !important;
+    display: block;
+}
+
+/* ========== Notification items ========== */
+#wpadminbar #wp-admin-bar-persian-oa-notifications .persian-oa-ab-notification-item .ab-item {
+    display: block !important;
+    padding: 12px 16px !important;
+    white-space: normal !important;
+    line-height: 1.4;
+    border-bottom: 1px solid var(--persian-oa-ab-border);
+    transition: background 0.2s ease;
+}
+
+#wpadminbar #wp-admin-bar-persian-oa-notifications .persian-oa-ab-notification-item:last-of-type .ab-item {
+    border-bottom: none;
+}
+
+#wpadminbar #wp-admin-bar-persian-oa-notifications .persian-oa-ab-notification-item:hover .ab-item {
+    background: var(--persian-oa-ab-hover) !important;
+}
+
+#wpadminbar .persian-oa-ab-notification-title {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--persian-oa-ab-text) !important;
+    margin-bottom: 2px;
+}
+
+#wpadminbar .persian-oa-ab-notification-meta {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--persian-oa-ab-primary) !important;
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+#wpadminbar .persian-oa-ab-notification-preview {
+    display: block;
+    font-size: 12px;
+    color: var(--persian-oa-ab-text-muted) !important;
+    margin-top: 4px;
+    max-height: 2.6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ========== Footer links ========== */
+#wpadminbar #wp-admin-bar-persian-oa-notifications .persian-oa-ab-footer .ab-item {
+    padding: 10px 16px !important;
+    background: var(--persian-oa-ab-hover) !important;
+    border-top: 1px solid var(--persian-oa-ab-border);
+    text-align: center;
+}
+
+#wpadminbar #wp-admin-bar-persian-oa-notifications .persian-oa-ab-footer:hover .ab-item {
+    background: #e5e7eb !important;
+}
+
+#wpadminbar .persian-oa-ab-footer-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--persian-oa-ab-primary) !important;
+}
+
+#wpadminbar .persian-oa-ab-mark-all {
+    color: var(--persian-oa-ab-text-muted) !important;
+}
+
+#wpadminbar #wp-admin-bar-persian-oa-notifications-mark-all:hover .persian-oa-ab-mark-all {
+    color: var(--persian-oa-ab-primary) !important;
+}
+
+/* First footer item: no top border on the one above it */
+#wpadminbar #wp-admin-bar-persian-oa-notifications-view-all .ab-item {
+    border-radius: 0 0 0 0;
+}
+
+#wpadminbar #wp-admin-bar-persian-oa-notifications-mark-all .ab-item {
+    border-top: none !important;
+}
+
+/* ========== RTL and list reset ========== */
+#wpadminbar #wp-admin-bar-persian-oa-notifications .ab-submenu .ab-item {
+    text-align: right;
+}
+
+#wpadminbar #wp-admin-bar-persian-oa-notifications .ab-submenu li {
+    margin: 0 !important;
+}
